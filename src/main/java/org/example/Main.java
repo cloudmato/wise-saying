@@ -16,14 +16,20 @@ class App {
 
         System.out.println("== 명언 앱 ==");
 
-        System.out.print("명언 : ");
-        sc.nextLine();  // 입력값 가져옴. 입력값이 없으면 기다린다. 엔터를 쳐야 입력이 완료됨. 그래야 넘어감
+        while (true) {
 
-        System.out.print("작가 : ");
-        sc.nextLine();
+            System.out.print("명령: ");
+            String command = sc.nextLine();
 
-        System.out.println("1번 명언이 종료되었습니다.");
-        System.out.println("명령) 종료");
+            if (command.equals("등록")){
+                System.out.print("명언 : ");
+                sc.nextLine();  // 입력값 가져옴. 입력값이 없으면 기다린다. 엔터를 쳐야 입력이 완료됨. 그래야 넘어감
 
+                System.out.print("작가 : ");
+                sc.nextLine();
+
+                System.out.println("1번 명언이 등록되었습니다.");
+            }
+        }
     }
 }

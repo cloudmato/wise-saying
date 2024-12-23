@@ -34,7 +34,7 @@
     "Gradle.wise-saying [:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -52,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1734932804544</updated>
-      <workItem from="1734932805567" duration="2197000" />
+      <workItem from="1734932805567" duration="2958000" />
     </task>
     <servers />
   </component>
