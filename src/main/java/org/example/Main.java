@@ -21,7 +21,11 @@ class App {
             System.out.print("명령: ");
             String command = sc.nextLine();
 
-            if (command.equals("등록")){
+            if (command.equals("종료")) {
+                System.out.println("명언 앱을 종료합니다.");
+                break;
+            }
+            else if (command.equals("등록")){
                 System.out.print("명언 : ");
                 sc.nextLine();  // 입력값 가져옴. 입력값이 없으면 기다린다. 엔터를 쳐야 입력이 완료됨. 그래야 넘어감
 
