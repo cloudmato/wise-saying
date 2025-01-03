@@ -1,5 +1,6 @@
 package org.example;
 
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public class Main {
@@ -10,19 +11,22 @@ public class Main {
 }
 
 class App {
+
+    // 클래스에서 함수들이 공유해야 하는 변수 -> 인스턴스 변수
+    int lastId = 0;
+    int wiseSayingSize = 0;
+    WiseSaying[] wiseSayingList = new WiseSaying[3];
+
     public void run() {
 
         Scanner sc = new Scanner(System.in);
-
-        int lastId = 0;
-        int wiseSayingSize = 0;
-        WiseSaying[] wiseSayingList = new WiseSaying[3];
 
         //테스트 명언 데이터1
         WiseSaying wiseSayingTest = new WiseSaying();
         wiseSayingTest.id = ++lastId;
         wiseSayingTest.content = "꿈을 지녀라, 그러면 어려운 현실을 이길 수 있다.";
         wiseSayingTest.author = "월트 디즈니";
+        wiseSayingTest.createDate = LocalDateTime.now();
 
         wiseSayingList[wiseSayingSize++] = wiseSayingTest;
 
@@ -44,13 +48,7 @@ class App {
                 System.out.print("작가 : ");
                 String author = sc.nextLine();
 
-                WiseSaying wiseSaying = new WiseSaying();
-
-                wiseSaying.id = ++lastId;
-                wiseSaying.content = content;
-                wiseSaying.author = author;
-
-                wiseSayingList[wiseSayingSize++] = wiseSaying;
+                add(content, author);   //1. 함수 분리 -> 코드가 줄어든다. 2. 재활용성(중복 제거)
 
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(lastId));
             } else if (command.equals("목록")) {
@@ -62,10 +60,20 @@ class App {
                     System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
                 }
 
-                //for (WiseSaying wiseSaying : wiseSayingList) {
-                //}
             }
         }
+    }
+
+    // 함수 이름 지을 떈 동사
+    public void add(String content, String author) {
+        WiseSaying wiseSaying = new WiseSaying();
+
+        wiseSaying.id = ++lastId;
+        wiseSaying.content = content;
+        wiseSaying.author = author;
+        wiseSaying.createDate = LocalDateTime.now();
+
+        wiseSayingList[wiseSayingSize++] = wiseSaying;
     }
 }
 
@@ -73,4 +81,5 @@ class WiseSaying {
     int id;
     String content;
     String author;
+    LocalDateTime createDate;
 }
