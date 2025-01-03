@@ -18,6 +18,14 @@ class App {
         int wiseSayingSize = 0;
         WiseSaying[] wiseSayingList = new WiseSaying[3];
 
+        //테스트 명언 데이터1
+        WiseSaying wiseSayingTest = new WiseSaying();
+        wiseSayingTest.id = ++lastId;
+        wiseSayingTest.content = "꿈을 지녀라, 그러면 어려운 현실을 이길 수 있다.";
+        wiseSayingTest.author = "월트 디즈니";
+
+        wiseSayingList[wiseSayingSize++] = wiseSayingTest;
+
         System.out.println("== 명언 앱 ==");
 
         while (true) {
@@ -49,13 +57,13 @@ class App {
 
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-                //for (int i = 0; i < wiseSayingSize; i++) {
-                //    WiseSaying wiseSaying = wiseSayingList[i];
-                //}
-
-                for (WiseSaying wiseSaying : wiseSayingList) {
+                for (int i = 0; i < wiseSayingSize; i++) {
+                    WiseSaying wiseSaying = wiseSayingList[i];
                     System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
                 }
+
+                //for (WiseSaying wiseSaying : wiseSayingList) {
+                //}
             }
         }
     }
