@@ -14,7 +14,8 @@ class App {
 
         Scanner sc = new Scanner(System.in);
 
-        int lastNo = 0;
+        int lastId = 0;
+        int wiseSayingSize = 0;
         WiseSaying[] wiseSayingList = new WiseSaying[3];
 
         System.out.println("== 명언 앱 ==");
@@ -37,19 +38,22 @@ class App {
 
                 WiseSaying wiseSaying = new WiseSaying();
 
-                wiseSaying.id = ++lastNo;
+                wiseSaying.id = ++lastId;
                 wiseSaying.content = content;
                 wiseSaying.author = author;
 
-                wiseSayingList[lastNo - 1] = wiseSaying;
+                wiseSayingList[wiseSayingSize++] = wiseSaying;
 
-                System.out.println("%d번 명언이 등록되었습니다.".formatted(lastNo));
+                System.out.println("%d번 명언이 등록되었습니다.".formatted(lastId));
             } else if (command.equals("목록")) {
 
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-                for (int i = 0; i < lastNo; i++) {
-                    WiseSaying wiseSaying = wiseSayingList[i];
+                //for (int i = 0; i < wiseSayingSize; i++) {
+                //    WiseSaying wiseSaying = wiseSayingList[i];
+                //}
+
+                for (WiseSaying wiseSaying : wiseSayingList) {
                     System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
                 }
             }
