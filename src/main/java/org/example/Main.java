@@ -13,9 +13,9 @@ public class Main {
 class App {
 
     // 클래스에서 함수들이 공유해야 하는 변수 -> 인스턴스 변수
-    int lastId = 0;
-    int wiseSayingSize = 0;
-    WiseSaying[] wiseSayingList = new WiseSaying[3];
+    private int lastId = 0;
+    private int wiseSayingSize = 0;
+    private final WiseSaying[] wiseSayingList = new WiseSaying[3];
 
     public void run() {
 
