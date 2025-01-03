@@ -20,20 +20,10 @@ class App {
     public void run() {
 
         Scanner sc = new Scanner(System.in);
-
-        //테스트 명언 데이터1
-        WiseSaying wiseSayingTest = new WiseSaying();
-        wiseSayingTest.id = ++lastId;
-        wiseSayingTest.content = "꿈을 지녀라, 그러면 어려운 현실을 이길 수 있다.";
-        wiseSayingTest.author = "월트 디즈니";
-        wiseSayingTest.createDate = LocalDateTime.now();
-
-        wiseSayingList[wiseSayingSize++] = wiseSayingTest;
+        add("꿈을 지녀라, 그러면 어려운 현실을 이길 수 있다.", "월트 디즈니");
 
         System.out.println("== 명언 앱 ==");
-
         while (true) {
-
             System.out.print("명령: ");
             String command = sc.nextLine();
 
@@ -66,7 +56,7 @@ class App {
 
     // 함수 이름 지을 떈 동사
     public void add(String content, String author) {
-        WiseSaying wiseSaying = new WiseSaying();
+        WiseSaying wiseSaying = new WiseSaying(lastId, content, author);
 
         wiseSaying.id = ++lastId;
         wiseSaying.content = content;
@@ -82,4 +72,10 @@ class WiseSaying {
     String content;
     String author;
     LocalDateTime createDate;
+
+    public WiseSaying(int id, String content, String author) {
+        this.id = id;
+        this.content = content;
+        this.author = author;
+    }
 }
