@@ -47,7 +47,7 @@ class App {
                 System.out.println("----------------------");
                 for (int i = 0; i < wiseSayingSize; i++) {
                     WiseSaying wiseSaying = wiseSayingList[i];
-                    System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
+                    System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
                 }
 
             }
@@ -56,26 +56,34 @@ class App {
 
     // 함수 이름 지을 떈 동사
     public void add(String content, String author) {
-        WiseSaying wiseSaying = new WiseSaying(lastId, content, author);
-
-        wiseSaying.id = ++lastId;
-        wiseSaying.content = content;
-        wiseSaying.author = author;
-        wiseSaying.createDate = LocalDateTime.now();
+        WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
 
         wiseSayingList[wiseSayingSize++] = wiseSaying;
     }
 }
 
 class WiseSaying {
-    int id;
-    String content;
-    String author;
-    LocalDateTime createDate;
+    private int id;
+    private String content;
+    private String author;
+    private LocalDateTime createDate;
 
     public WiseSaying(int id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
 }
